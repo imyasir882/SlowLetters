@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  --vintage-cream: #F7F3E9;
+  --vintage-parchment: #F2E8D5;
+  --vintage-gold: #D4AF37;
+  --vintage-bronze: #CD7F32;
+  --vintage-dark-gold: #B8860B;
+  --vintage-sepia: #704214;
+  --vintage-ink: #2C1810;
+  --vintage-faded: #8B7355;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--vintage-cream);
+  color: var(--vintage-ink);
+}
+
+body {
+  background-image: radial-gradient(circle at 25px 25px, var(--vintage-parchment) 2%, transparent 0%), 
+                    radial-gradient(circle at 75px 75px, var(--vintage-parchment) 1%, transparent 0%);
+  background-size: 100px 100px;
+}
+
+.vintage-paper {
+  background: linear-gradient(135deg, var(--vintage-cream) 0%, var(--vintage-parchment) 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    0 2px 4px rgba(0,0,0,0.1),
+    0 8px 16px rgba(0,0,0,0.05);
+}
+
+.vintage-gold-border {
+  border: 2px solid var(--vintage-gold);
+  box-shadow: 
+    0 0 10px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.letter-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(44, 24, 16, 0.1),
+    0 2px 4px -1px rgba(44, 24, 16, 0.06),
+    0 12px 24px rgba(44, 24, 16, 0.08);
+}
+
+.handwritten {
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.6;
+}
+
+.elegant-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vintage-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vintage-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vintage-dark-gold);
+}
+
+/* Focus styles */
+.focus\:vintage-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+  border-color: var(--vintage-gold);
+}
+
+/* Button transitions */
+.btn-vintage {
+  transition: all 0.2s ease-in-out;
+  background: linear-gradient(135deg, var(--vintage-gold) 0%, var(--vintage-dark-gold) 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-vintage:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, var(--vintage-dark-gold) 0%, var(--vintage-gold) 100%);
+}
+
+.btn-vintage:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Loading animation */
+.loading-dots::after {
+  content: '';
+  animation: loading-dots 2s infinite;
+}
+
+@keyframes loading-dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* Enhanced shadows for new UI */
+.letter-shadow-strong {
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.15),
+    0 4px 20px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Prose styling for expanded letters */
+.prose-vintage {
+  color: var(--vintage-sepia);
+}
+
+.prose-vintage p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.prose-vintage strong {
+  color: var(--vintage-ink);
+}
+
+.prose-vintage em {
+  color: var(--vintage-faded);
+  font-style: italic;
+}
