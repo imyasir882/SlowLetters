@@ -2,11 +2,16 @@ import '@testing-library/jest-dom'
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
-  constructor() {}
+  root: Element | null = null
+  rootMargin: string = '0px'
+  thresholds: ReadonlyArray<number> = [0]
+  
+  constructor(_callback?: IntersectionObserverCallback, _options?: IntersectionObserverInit) {}
   disconnect() {}
   observe() {}
   unobserve() {}
-}
+  takeRecords(): IntersectionObserverEntry[] { return [] }
+} as any
 
 // Mock ResizeObserver
 global.ResizeObserver = class ResizeObserver {
