@@ -10,7 +10,6 @@ SlowLetters recreates the romance and anticipation of traditional letter corresp
 - **⏰ Turn-Based Letters**: Take turns writing with customizable delays (1-30 days)
 - **🎙️ Voice-to-Text**: Speak your letters using Web Speech API
 - **⭐ Favorites**: Star and collect your most treasured letters  
-- **📄 PDF Export**: Download any letter as a beautifully styled PDF
 - **🎨 Vintage UI**: Luxurious paper textures and elegant typography
 - **📱 Responsive Design**: Beautiful on desktop, tablet, and mobile
 - **🔒 Secure**: SQL database with JWT authentication
@@ -82,7 +81,8 @@ SlowLetters recreates the romance and anticipation of traditional letter corresp
 ### Managing Letters
 
 - **Star letters** by hovering over them and clicking the star icon
-- **Download PDFs** using the download button (beautiful vintage styling)
+- **Toggle favorites** by clicking the heart icon
+- **Expand letters** by clicking on them for full-screen reading
 - **View favorites** using the favorites toggle
 - **Wait patiently** for your partner's response (anticipation makes the heart grow fonder!)
 
@@ -92,7 +92,6 @@ SlowLetters recreates the romance and anticipation of traditional letter corresp
 - **Backend**: Next.js API Routes, Prisma ORM
 - **Database**: SQLite (dev) / PostgreSQL (production)
 - **Authentication**: JWT with bcrypt
-- **PDF Generation**: PDFKit
 - **Voice Input**: Web Speech API
 - **Deployment**: Vercel
 
@@ -217,7 +216,6 @@ npm run test:watch
 - `GET /api/letters` - Get all letters for user's pair
 - `POST /api/letters` - Send a new letter
 - `PATCH /api/letters/:id/favorite` - Toggle favorite status
-- `GET /api/letters/:id/pdf` - Download letter as PDF
 
 ## 🤝 Contributing
 
