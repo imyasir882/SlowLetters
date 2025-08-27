@@ -1,7 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
-import AppWrapper from '../components/AppWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,9 +25,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className={`${inter.className} h-full bg-vintage-cream`}>
         <div className="min-h-full bg-vintage-paper">
-          <AppWrapper>
-            {children}
-          </AppWrapper>
+          {children}
         </div>
       </body>
     </html>
