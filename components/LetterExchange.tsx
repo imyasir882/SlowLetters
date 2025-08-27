@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { AuthUser, PairInfo, Letter, ApiResponse } from '@/types'
 import Stopwatch from './Stopwatch'
 import LetterCard from './LetterCard'
-import Composer from './Composer'
+import DraftComposer from './DraftComposer'
 
 interface LetterExchangeProps {
   pairInfo: PairInfo
@@ -90,24 +90,32 @@ export default function LetterExchange({ pairInfo, user, onLetterSent, showToast
           </h2>
           
           {isYourTurn ? (
-            <p className="text-vintage-faded mb-4 text-sm sm:text-base">
-              It's your turn! You can write a new letter.
-            </p>
+            timer.canSend ? (
+              <p className="text-vintage-faded mb-4 text-sm sm:text-base">
+                It's your turn! You can write and send a new letter.
+              </p>
+            ) : (
+              <p className="text-vintage-faded mb-4 text-sm sm:text-base">
+                It's your turn! Write a draft letter and send it when the timer allows.
+              </p>
+            )
           ) : (
             <p className="text-vintage-faded mb-4 text-sm sm:text-base">
-              Waiting for {partner?.displayName} to send their next letter...
+              Waiting for {partner?.displayName} to send their next letter... You can still write a draft for later.
             </p>
           )}
 
           <div className="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-            {isYourTurn && (
-              <button
-                onClick={() => setShowComposer(true)}
-                className="btn-vintage w-full sm:w-auto"
-              >
-                Write New Letter
-              </button>
-            )}
+            <button
+              onClick={() => setShowComposer(true)}
+              className={`w-full sm:w-auto px-4 sm:px-6 py-3 rounded-lg transition-colors text-sm sm:text-base ${
+                isYourTurn && timer.canSend
+                  ? 'btn-vintage'
+                  : 'border-2 border-vintage-gold text-vintage-gold hover:bg-vintage-gold hover:text-white'
+              }`}
+            >
+              {isYourTurn && timer.canSend ? 'Write & Send Letter' : 'Write Draft Letter'}
+            </button>
             
             <button
               onClick={() => setShowFavorites(!showFavorites)}
@@ -152,11 +160,13 @@ export default function LetterExchange({ pairInfo, user, onLetterSent, showToast
         )}
       </div>
 
-      {/* Composer Modal */}
+      {/* Draft Composer Modal */}
       {showComposer && (
-        <Composer
+        <DraftComposer
           onSend={handleSendLetter}
           onCancel={() => setShowComposer(false)}
+          canSend={timer.canSend}
+          timeUntilCanSend={timer.timeRemaining}
         />
       )}
     </div>

@@ -52,12 +52,15 @@ export async function GET(request: NextRequest) {
           select: { id: true, displayName: true, username: true }
         },
         letters: {
+          where: {
+            isDraft: false  // Only include sent letters
+          },
           include: {
             author: {
               select: { id: true, displayName: true, username: true }
             }
           },
-          orderBy: { createdAt: 'desc' }
+          orderBy: { sentAt: 'desc' }
         }
       }
     })
@@ -85,7 +88,7 @@ export async function GET(request: NextRequest) {
     const pairInfo: PairInfo = {
       pair: pair as any,  // Cast due to Prisma include types mismatch
       partner: partner as any,  // Cast due to partial select
-      isYourTurn: isYourTurn && timer.canSend,
+      isYourTurn: isYourTurn,  // Turn should be independent of timer
       timer
     }
 

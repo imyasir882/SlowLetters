@@ -27,7 +27,10 @@ export interface Letter {
   authorId: string
   bodyText: string
   isFavorite: boolean
+  isDraft: boolean
+  sentAt: Date | null
   createdAt: Date
+  updatedAt: Date
   author?: User
   pair?: Pair
 }

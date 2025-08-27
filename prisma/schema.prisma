@@ -48,7 +48,10 @@ model Letter {
   authorId   String   @map("author_id")
   bodyText   String   @map("body_text")
   isFavorite Boolean  @default(false) @map("is_favorite")
+  isDraft    Boolean  @default(false) @map("is_draft")
+  sentAt     DateTime? @map("sent_at")
   createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
 
   // Relations
   pair   Pair @relation(fields: [pairId], references: [id], onDelete: Cascade)
