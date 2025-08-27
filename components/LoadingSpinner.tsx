@@ -85,9 +85,10 @@ export function FullPageLoader({ message = "Preparing your romantic sanctuary...
             transition={{ duration: 0.5 }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            {steps[currentStep] && (
-              <steps[currentStep].icon className="w-8 h-8 text-vintage-600" />
-            )}
+            {steps[currentStep] && (() => {
+              const IconComponent = steps[currentStep].icon
+              return <IconComponent className="w-8 h-8 text-vintage-600" />
+            })()}
           </motion.div>
         </div>
         
