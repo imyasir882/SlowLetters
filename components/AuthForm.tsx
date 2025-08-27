@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AuthUser, ApiResponse } from '@/types'
+import { ButtonLoader } from './LoadingSpinner'
 
 interface AuthFormProps {
   onLogin: (user: AuthUser, token: string) => void
@@ -138,12 +139,13 @@ export default function AuthForm({ onLogin }: AuthFormProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full btn-vintage disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full btn-vintage disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
-              <span className="loading-dots">
-                {isLogin ? 'Signing in' : 'Creating account'}
-              </span>
+              <>
+                <ButtonLoader />
+                <span>{isLogin ? 'Signing in...' : 'Creating account...'}</span>
+              </>
             ) : (
               isLogin ? 'Sign In' : 'Create Account'
             )}

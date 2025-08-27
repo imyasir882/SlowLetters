@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { AuthUser, PairInfo, ApiResponse } from '@/types'
+import { ButtonLoader } from './LoadingSpinner'
 
 interface PairingFlowProps {
   user: AuthUser
@@ -152,9 +153,16 @@ export default function PairingFlow({ user, onPairingComplete, showToast }: Pair
               <button
                 type="submit"
                 disabled={loading || inviteCode.length !== 8}
-                className="w-full btn-vintage disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-vintage disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {loading ? 'Connecting...' : 'Connect with Partner'}
+                {loading ? (
+                  <>
+                    <ButtonLoader />
+                    <span>Connecting...</span>
+                  </>
+                ) : (
+                  'Connect with Partner'
+                )}
               </button>
             </form>
           </div>
@@ -209,9 +217,16 @@ export default function PairingFlow({ user, onPairingComplete, showToast }: Pair
               <button
                 onClick={handleConfirmPairing}
                 disabled={loading}
-                className="flex-1 btn-vintage disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 btn-vintage disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {loading ? 'Pairing...' : 'Confirm & Start Writing'}
+                {loading ? (
+                  <>
+                    <ButtonLoader />
+                    <span>Pairing...</span>
+                  </>
+                ) : (
+                  'Confirm & Start Writing'
+                )}
               </button>
             </div>
           </div>
