@@ -59,18 +59,18 @@ export default function AuthForm({ onLogin }: AuthFormProps) {
   }
 
   return (
-    <div className="max-w-md mx-auto">
-      <div className="vintage-paper vintage-gold-border rounded-lg p-8 letter-shadow">
-        <div className="text-center mb-8">
-          <h2 className="elegant-serif text-3xl font-bold text-vintage-sepia mb-2">
+    <div className="max-w-md mx-auto px-4">
+      <div className="vintage-paper vintage-gold-border rounded-lg p-4 sm:p-6 md:p-8 letter-shadow">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="elegant-serif text-2xl sm:text-3xl font-bold text-vintage-sepia mb-2">
             {isLogin ? 'Welcome Back' : 'Join SlowLetters'}
           </h2>
-          <p className="text-vintage-faded">
+          <p className="text-vintage-faded text-sm sm:text-base">
             {isLogin ? 'Sign in to your love story' : 'Create your romantic journey'}
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           <AnimatePresence mode="wait">
             {!isLogin && (
               <motion.div
@@ -87,7 +87,7 @@ export default function AuthForm({ onLogin }: AuthFormProps) {
                   name="displayName"
                   value={formData.displayName}
                   onChange={handleInputChange}
-                  className="w-full p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors"
+                  className="w-full p-2.5 sm:p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors text-sm sm:text-base"
                   placeholder="How should your partner see your name?"
                   required={!isLogin}
                 />
@@ -104,7 +104,7 @@ export default function AuthForm({ onLogin }: AuthFormProps) {
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              className="w-full p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors"
+              className="w-full p-2.5 sm:p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors text-sm sm:text-base"
               placeholder="Your unique username"
               required
             />
@@ -119,7 +119,7 @@ export default function AuthForm({ onLogin }: AuthFormProps) {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors"
+              className="w-full p-2.5 sm:p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors text-sm sm:text-base"
               placeholder="Your secret key"
               required
             />

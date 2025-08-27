@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description: 'A romantic slow letter-writing app for two hearts, one story.',
   keywords: ['romance', 'letters', 'slow', 'vintage', 'love', 'correspondence'],
   authors: [{ name: 'SlowLetters Team' }],
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'SlowLetters - Romance in Every Word',
     description: 'A romantic slow letter-writing app for two hearts, one story.',

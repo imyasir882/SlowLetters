@@ -46,8 +46,8 @@ export default function LetterCard({
           delay: animationDelay,
           ease: "easeOut" 
         }}
-        className={`vintage-paper rounded-lg p-4 letter-shadow ${
-          isOwn ? 'ml-8 border-l-4 border-l-vintage-gold' : 'mr-8 border-r-4 border-r-vintage-gold'
+        className={`vintage-paper rounded-lg p-3 sm:p-4 letter-shadow ${
+          isOwn ? 'ml-2 sm:ml-4 md:ml-8 border-l-4 border-l-vintage-gold' : 'mr-2 sm:mr-4 md:mr-8 border-r-4 border-r-vintage-gold'
         } relative group cursor-pointer hover:shadow-lg transition-all duration-300`}
         onClick={() => setIsExpanded(true)}
       >
@@ -106,23 +106,23 @@ export default function LetterCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4"
             onClick={() => setIsExpanded(false)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="vintage-paper rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto letter-shadow-strong"
+              className="vintage-paper rounded-xl p-4 sm:p-6 md:p-8 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl w-full max-h-[80vh] overflow-y-auto letter-shadow-strong"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-start justify-between mb-6">
+              <div className="flex items-start justify-between mb-4 sm:mb-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-vintage-sepia mb-2 font-serif">
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-vintage-sepia mb-2 font-serif">
                     Letter from {isOwn ? 'You' : letter.author?.displayName}
                   </h2>
-                  <p className="text-vintage-faded">
+                  <p className="text-sm sm:text-base text-vintage-faded">
                     {formatDate(letter.createdAt)}
                   </p>
                 </div>
@@ -150,16 +150,16 @@ export default function LetterCard({
 
               {/* Letter Content */}
               <div className="prose prose-vintage max-w-none">
-                <div className="bg-vintage-cream/30 rounded-lg p-6 border border-vintage-gold/20">
-                  <p className="text-vintage-sepia leading-relaxed text-lg font-serif whitespace-pre-wrap">
+                <div className="bg-vintage-cream/30 rounded-lg p-3 sm:p-4 md:p-6 border border-vintage-gold/20">
+                  <p className="text-vintage-sepia leading-relaxed text-sm sm:text-base md:text-lg font-serif whitespace-pre-wrap">
                     {letter.bodyText}
                   </p>
                 </div>
               </div>
 
               {/* Footer */}
-              <div className="mt-6 pt-4 border-t border-vintage-gold/20 text-center">
-                <p className="text-vintage-faded text-sm italic">
+              <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-vintage-gold/20 text-center">
+                <p className="text-vintage-faded text-xs sm:text-sm italic">
                   "Love lives in every word" ✨
                 </p>
               </div>

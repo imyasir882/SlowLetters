@@ -140,7 +140,7 @@ export default function Composer({ onSend, onCancel }: ComposerProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
-        className="vintage-paper rounded-xl p-8 max-w-4xl w-full max-h-[80vh] overflow-hidden letter-shadow-strong"
+        className="vintage-paper rounded-xl p-4 sm:p-6 lg:p-8 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-3xl w-full max-h-[90vh] sm:max-h-[85vh] lg:max-h-[80vh] overflow-y-auto letter-shadow-strong"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -175,7 +175,7 @@ export default function Composer({ onSend, onCancel }: ComposerProps) {
             onChange={(e) => setContent(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Dear beloved, let your heart speak through these words..."
-            className="w-full h-80 p-6 bg-vintage-cream/30 border border-vintage-gold/20 rounded-xl text-vintage-sepia placeholder-vintage-faded/60 resize-none focus:outline-none focus:ring-2 focus:ring-vintage-gold/50 focus:border-transparent font-serif text-lg leading-relaxed"
+            className="w-full h-48 sm:h-56 md:h-64 lg:h-80 p-4 sm:p-6 bg-vintage-cream/30 border border-vintage-gold/20 rounded-xl text-vintage-sepia placeholder-vintage-faded/60 resize-none focus:outline-none focus:ring-2 focus:ring-vintage-gold/50 focus:border-transparent font-serif text-base sm:text-lg leading-relaxed"
             disabled={isSending}
           />
           

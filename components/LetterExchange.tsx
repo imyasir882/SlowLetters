@@ -84,26 +84,26 @@ export default function LetterExchange({ pairInfo, user, onLetterSent, showToast
           />
         </div>
 
-        <div className="vintage-paper vintage-gold-border rounded-lg p-6 letter-shadow">
-          <h2 className="elegant-serif text-2xl font-bold text-vintage-sepia mb-2">
+        <div className="vintage-paper vintage-gold-border rounded-lg p-4 sm:p-6 letter-shadow">
+          <h2 className="elegant-serif text-lg sm:text-xl md:text-2xl font-bold text-vintage-sepia mb-2">
             Your Letter Exchange with {partner?.displayName}
           </h2>
           
           {isYourTurn ? (
-            <p className="text-vintage-faded mb-4">
+            <p className="text-vintage-faded mb-4 text-sm sm:text-base">
               It's your turn! You can write a new letter.
             </p>
           ) : (
-            <p className="text-vintage-faded mb-4">
+            <p className="text-vintage-faded mb-4 text-sm sm:text-base">
               Waiting for {partner?.displayName} to send their next letter...
             </p>
           )}
 
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
             {isYourTurn && (
               <button
                 onClick={() => setShowComposer(true)}
-                className="btn-vintage"
+                className="btn-vintage w-full sm:w-auto"
               >
                 Write New Letter
               </button>
@@ -111,7 +111,7 @@ export default function LetterExchange({ pairInfo, user, onLetterSent, showToast
             
             <button
               onClick={() => setShowFavorites(!showFavorites)}
-              className="px-6 py-3 border-2 border-vintage-gold text-vintage-gold hover:bg-vintage-gold hover:text-white transition-colors rounded-lg"
+              className="px-4 sm:px-6 py-3 border-2 border-vintage-gold text-vintage-gold hover:bg-vintage-gold hover:text-white transition-colors rounded-lg text-sm sm:text-base w-full sm:w-auto"
             >
               {showFavorites ? 'All Letters' : 'Favorites'} ({showFavorites ? allLetters.length : favoriteLetters.length})
             </button>

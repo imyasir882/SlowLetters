@@ -89,27 +89,27 @@ export default function PairingFlow({ user, onPairingComplete, showToast }: Pair
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto px-4">
       {step === 'invite' ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="vintage-paper vintage-gold-border rounded-lg p-8 letter-shadow"
+          className="vintage-paper vintage-gold-border rounded-lg p-4 sm:p-6 md:p-8 letter-shadow"
         >
-          <div className="text-center mb-8">
-            <h2 className="elegant-serif text-3xl font-bold text-vintage-sepia mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="elegant-serif text-2xl sm:text-3xl font-bold text-vintage-sepia mb-4">
               Connect with Your Love
             </h2>
-            <p className="text-vintage-faded">
+            <p className="text-vintage-faded text-sm sm:text-base">
               Enter the invite code your partner shared with you to begin your letter exchange.
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="vintage-paper border border-vintage-gold/30 rounded-lg p-6">
-              <h3 className="font-semibold text-vintage-sepia mb-2">Your Invite Code</h3>
-              <div className="flex items-center space-x-4">
-                <code className="flex-1 text-2xl font-mono bg-vintage-cream p-3 rounded-lg border text-vintage-sepia tracking-widest text-center">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="vintage-paper border border-vintage-gold/30 rounded-lg p-4 sm:p-6">
+              <h3 className="font-semibold text-vintage-sepia mb-2 text-sm sm:text-base">Your Invite Code</h3>
+              <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <code className="flex-1 text-lg sm:text-2xl font-mono bg-vintage-cream p-2.5 sm:p-3 rounded-lg border text-vintage-sepia tracking-widest text-center w-full">
                   {user.inviteCode || 'Loading...'}
                 </code>
                 <button
@@ -119,30 +119,30 @@ export default function PairingFlow({ user, onPairingComplete, showToast }: Pair
                       showToast('Invite code copied to clipboard!', 'success')
                     }
                   }}
-                  className="btn-vintage"
+                  className="btn-vintage w-full sm:w-auto"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-sm text-vintage-faded mt-2">
+              <p className="text-xs sm:text-sm text-vintage-faded mt-2">
                 Share this code with your partner so they can connect with you.
               </p>
             </div>
 
-            <div className="text-center text-vintage-faded">
+            <div className="text-center text-vintage-faded text-sm sm:text-base">
               <span>- OR -</span>
             </div>
 
             <form onSubmit={handleJoinPair} className="space-y-4">
               <div>
-                <label className="block text-vintage-sepia font-semibold mb-2">
+                <label className="block text-vintage-sepia font-semibold mb-2 text-sm sm:text-base">
                   Enter Partner's Invite Code
                 </label>
                 <input
                   type="text"
                   value={inviteCode}
                   onChange={(e) => setInviteCode(e.target.value.toUpperCase())}
-                  className="w-full p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors text-center text-xl font-mono tracking-widest"
+                  className="w-full p-2.5 sm:p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors text-center text-lg sm:text-xl font-mono tracking-widest"
                   placeholder="XXXXXXXX"
                   maxLength={8}
                   required
@@ -163,27 +163,27 @@ export default function PairingFlow({ user, onPairingComplete, showToast }: Pair
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          className="vintage-paper vintage-gold-border rounded-lg p-8 letter-shadow"
+          className="vintage-paper vintage-gold-border rounded-lg p-4 sm:p-6 md:p-8 letter-shadow"
         >
-          <div className="text-center mb-8">
-            <h2 className="elegant-serif text-3xl font-bold text-vintage-sepia mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="elegant-serif text-2xl sm:text-3xl font-bold text-vintage-sepia mb-4">
               Confirm Your Connection
             </h2>
-            <p className="text-vintage-faded">
+            <p className="text-vintage-faded text-sm sm:text-base">
               You're about to pair with <strong>{partner?.displayName}</strong>. 
               Set up your letter exchange preferences.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div>
-              <label className="block text-vintage-sepia font-semibold mb-2">
+              <label className="block text-vintage-sepia font-semibold mb-2 text-sm sm:text-base">
                 Letter Exchange Delay
               </label>
               <select
                 value={delayDays}
                 onChange={(e) => setDelayDays(Number(e.target.value))}
-                className="w-full p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors"
+                className="w-full p-2.5 sm:p-3 border-2 border-vintage-gold/30 rounded-lg bg-vintage-cream focus:vintage-focus focus:border-vintage-gold transition-colors text-sm sm:text-base"
               >
                 <option value={1}>1 Day (24 hours)</option>
                 <option value={2}>2 Days (48 hours)</option>
@@ -192,17 +192,17 @@ export default function PairingFlow({ user, onPairingComplete, showToast }: Pair
                 <option value={14}>2 Weeks</option>
                 <option value={30}>1 Month</option>
               </select>
-              <p className="text-sm text-vintage-faded mt-2">
+              <p className="text-xs sm:text-sm text-vintage-faded mt-2">
                 This is how long you'll wait between sending letters. Choose wisely - 
                 anticipation makes the heart grow fonder.
               </p>
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <button
                 onClick={() => setStep('invite')}
                 disabled={loading}
-                className="flex-1 px-6 py-3 border-2 border-vintage-gold text-vintage-gold hover:bg-vintage-gold hover:text-white transition-colors rounded-lg disabled:opacity-50"
+                className="flex-1 px-4 sm:px-6 py-3 border-2 border-vintage-gold text-vintage-gold hover:bg-vintage-gold hover:text-white transition-colors rounded-lg disabled:opacity-50"
               >
                 Back
               </button>
