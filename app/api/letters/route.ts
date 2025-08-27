@@ -168,7 +168,9 @@ export async function POST(request: NextRequest) {
         data: {
           pairId: pair.id,
           authorId: user.userId,
-          bodyText: bodyText.trim()
+          bodyText: bodyText.trim(),
+          isDraft: false,
+          sentAt: new Date()
         },
         include: {
           author: {
